@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SunRisersHyderabad</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Michroma&display=swap');
+    </style>
+</head>
+<body class="Michroma">
+    <!--Home-->
+    <div class="container" id="home">
+        <div class="navbar">
+            <div id="logo"></div>
+
+            <div id="menu-toggle">&#9776;</div>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#team">Team</a>
+                <a href="#schedule">Schedule</a>
+                <a href="#statistics">Stats</a>
+                <a href="#about">About</a>
+                <a href="#fans">Fan Zone</a>
+            </div>
+        </div>
+        <div class="fans-in-stadium">
+            
+        </div>
+        <!--Team-->
+        <div class="team" id="team">
+            <div class="heading">
+                <h1 style="color: white;">Meet the Sunrisers Hyderabad 2025 Squad!</h1>
+                <h6 style="color: white;">The warriors in orange - skilled, strategic and ready to shine.</h6>
+            </div>
+            <div class="team-mems">
+                <div class="players-card">
+                    <a href="allplayers.html"><h1>All Players</h1></a>
+                </div>
+                <div class="players-card">
+                    <a href="batters.html"><h1>Batters</h1></a>
+                </div>
+                <div class="players-card">
+                    <a href="allrounders.html"><h1>All Rounders</h1></a>
+                </div>
+                <div class="players-card">
+                    <a href="bowlers.html"><h1>Bowlers</h1></a>
+                </div>
+            </div>
+        </div>
+
+        <!--Schedule-->
+        <div id="schedule">
+            <h1 style="color: orangered;">Match Schedule</h1>
+            <div id="schedule-container">
+
+            </div>
+        </div>
+
+        <!--Stats-->
+        <div class="stats" id="statistics">
+            <div class="stats-box">
+                <h1 style="text-align: center; margin-bottom: 40px;">SRH 2025 Star Performers</h1>
+                <table border="1" align="center" style="border-collapse: separate; border-spacing: 0;">
+                    <tr style="background-color: orangered; color: white;">
+                        <th>Player</th>
+                        <th>Matches</th>
+                        <th>Runs</th>
+                        <th>Wickets</th>
+                        <th>Highlights</th>
+                    </tr>
+                    <tr>
+                        <td>Henrich Klaasen</td>
+                        <td>13</td>
+                        <td>487</td>
+                        <td>-</td>
+                        <td>Consistent finisher</td>
+                    </tr>
+                    <tr style="background-color: orange; color: white;">
+                        <td>Abhishek Sharma</td>
+                        <td>13</td>
+                        <td>439</td>
+                        <td>3</td>
+                        <td>Explosive Opener & Part-time bowler</td>
+                    </tr>
+                    <tr>
+                        <td>Travis Head</td>
+                        <td>12</td>
+                        <td>374</td>
+                        <td>-</td>
+                        <td>Agressive top-order batter</td>
+                    </tr>
+                    <tr style="background-color: orange; color: white;">
+                        <td>Ishan Kishan</td>
+                        <td>13</td>
+                        <td>354</td>
+                        <td>-</td>
+                        <td>Steady middle-order hitter</td>
+                    </tr>
+                    <tr>
+                        <td>Aniket Verma</td>
+                        <td>12</td>
+                        <td>236</td>
+                        <td>-</td>
+                        <td>Impactful low-order striker</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--About-->
+        <div class="about-srh">
+            <div class="history" id="about">
+                <h1>About SRH</h1>
+                <div class="info-card">
+                    <p>Sunrisers Hyderabad (SRH) is a franchise cricket team that competes in the Indian Premier League (IPL). Based in Hyderabad, Telangana, the team was founded in 2012 and is known for its strong bowling attack and fighting spirit. SRH won its maiden IPL title in 2016 under the leadership of David Warner. Over the years, the team has featured star players like Bhuvneshwar Kumar, Kane Williamson, and Rashid Khan, gaining a loyal fanbase for their consistent performances and never-give-up attitude.</p>
+                </div>
+            </div>
+        </div>
+
+        <!--Fan Zone-->
+
+        <div class="fan-zone" id="fans">
+            <div class="slogans">
+                <h1 style="text-align: center; color: orangered; padding-top: 80px;">Fan Slogans</h1>
+                <div class="mini-card">
+                    <h5>Orange Army, Always Ready!</h5>
+                </div>
+
+                <div class="mini-card">
+                    <h5>Bleed Orange, Live Fierce!</h5>
+                </div>
+
+                <div class="mini-card">
+                    <h5>Roar with the Sunrisers!</h5>
+                </div>
+
+                <div class="mini-card">
+                    <h5>One Team, One Dream, SRH Supreme!</h5>
+                </div>
+
+                <div class="mini-card">
+                    <h5>SRH Till The End!</h5>
+                </div>
+            </div>
+        </div>
+        <!--Footer-->
+        <footer>
+            <p>&copy;2025 SRH Fan Page | Designed by Anushree</p>
+        </footer>
+    </div>
+<script>
+    const toggle=document.getElementById("menu-toggle");
+    const navLinks=document.getElementById("navLinks");
+
+    toggle.addEventListener('click',()=>{
+        navLinks.classList.toggle('active');
+    });
+    document.addEventListener('DOMContentLoaded', async () => {
+    const API_URL = 'https://api.cricapi.com/v1/currentMatches?apikey=lite';
+
+    function displaySchedule(matches) {
+        const container = document.getElementById('schedule-container');
+
+        if (!matches.length) {
+            container.innerHTML = '<p>No matches found for Sunrisers Hyderabad.</p>';
+            return;
+        }
+
+        let html = '';
+
+        matches.forEach(match => {
+            // Teams format might vary, adjust as per actual API response
+            const team1 = match['teamInfo'][0]?.name || 'Team 1';
+            const team2 = match['teamInfo'][1]?.name || 'Team 2';
+
+            const date = new Date(match.dateTimeGMT).toLocaleString();
+
+            const venue = match.venue || 'Venue TBA';
+
+            // Check if SRH is playing
+            if (
+                team1.toLowerCase().includes('sunrisers') ||
+                team2.toLowerCase().includes('sunrisers')
+            ) {
+                let statusText = match.matchStarted ? 
+                    (match.status || 'Live') : 'Upcoming';
+
+                html += `
+                    <div class="match">
+                        <p><strong>${team1}</strong> vs <strong>${team2}</strong></p>
+                        <p>Date: ${date}</p>
+                        <p>Venue: ${venue}</p>
+                        <p>Status: ${statusText}</p>
+                    </div>
+                `;
+            }
+        });
+
+        container.innerHTML = html || '<p>No matches found for Sunrisers Hyderabad.</p>';
+    }
+
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+
+        const data = await response.json();
+
+        // 'matches' array contains all matches currently in the API
+        const matches = data.data || data.matches || [];
+
+        displaySchedule(matches);
+    } catch (error) {
+        document.getElementById('schedule-container').innerHTML = 
+            `<p>Error loading match schedule: ${error.message}</p>`;
+        console.error('Fetch error:', error);
+    }
+});
+</script>
+</body>
+</html>

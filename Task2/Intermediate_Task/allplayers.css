@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+  font-family: "Michroma", serif;
+  font-optical-sizing: auto;
+  font-weight: 100px;
+  font-style: normal;
+  background-color: orangered;
+}
+
+.michroma{
+  font-family: "Michroma", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body h1{
+    padding-top: 30px;
+    text-align: center;
+    color: white;
+}
+
+.playercards{
+    margin-top: 30px;
+    display: flex;
+    gap: 50px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.player{
+    margin: 20px;
+    height: 243px;
+    width: 230px;
+    background-color: white;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.playerinfo{
+    height: 30px;
+    width: 230px;
+    background-color: white;
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+}
