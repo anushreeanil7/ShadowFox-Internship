@@ -1,0 +1,714 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.lora-lo{
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: light;
+  font-style: normal;
+}
+body{
+    color: #141E46;
+    font-family: 'Lora';
+    background-color: #FFF5E0;
+}
+
+body, html {
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* General Reset (optional but helps consistency) */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Navbar */
+.navbar {
+  width: 100vw;
+  background-color: #FFF5E0;
+  padding: 15px 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Brand Name */
+.navbar h2 {
+  color: #06202B;
+  font-size: 24px;
+}
+
+/* Toggle Icon (Hamburger) */
+#toggle-menu {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #06202B;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1001;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #06202B;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #f0e4cd;
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #FFF5E0;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 15px 30px;
+    gap: 15px;
+  }
+
+  #toggle-menu:checked + .menu-icon + .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+.content {
+    box-sizing: border-box;
+    background-color: #FFF5E0;
+    padding: 80px 16px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0 auto;
+}
+
+.content h1 {
+    font-size: 3em;
+    margin-top: 20px;
+}
+@media (max-width: 600px) {
+    .content {
+        padding: 48px 6px;
+    }
+    .content h1 {
+        font-size: 1.3em;
+    }
+    .content p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 2.2em;
+    }
+}
+
+.content h1,h3,p{
+    margin-top: 35px;
+}
+
+.wrapper {
+    margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.static {
+  font-size: 35px;
+  font-weight: 500;
+  margin-right: 10px;
+  font-family: 'Lora', sans-serif;
+}
+
+.dynamic {
+  margin-left: 5px ;
+  list-style: none;
+  overflow: hidden;
+  height: 40px;
+}
+
+.content button {
+        padding: 15px;
+        font-size: 0.9em;
+}
+
+.content i {
+        margin-left: 20px;
+        font-size: 1.2em;
+}
+.content h5,
+.content h1,
+.content p {
+    margin-top: 20px;
+}
+
+.dynamic li {
+  font-size: 35px;
+  font-weight: 500;
+  color: #C70039;
+  font-family: 'Raleway', sans-serif;
+  position: relative;
+  top: 0;
+  white-space: nowrap;
+  animation: slide 6s steps(1) infinite;
+}
+
+.dynamic li span {
+  position: relative;
+  white-space: nowrap;
+}
+
+.dynamic li span::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  border-right: 2px solid #C70039;
+  animation: typing 2s steps(15, end) forwards, blink 0.7s step-end infinite;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .static,
+  .dynamic li {
+    font-size: 1.1em !important; /* Scale down text */
+  }
+
+  .dynamic {
+    height: 1.2em; /* Matches the new font-size so one line fits */
+    min-width: 120px; /* Keep some width for the animation */
+  }
+
+  .dynamic li {
+    line-height: 1.2em;
+    min-width: 120px;
+  }
+
+  /* Adjust slide animation so it shifts by the correct height on mobile */
+  @keyframes slide {
+    0%   { top: 0 }
+    33%  { top: -1.2em }
+    66%  { top: -2.4em }
+    100% { top: 0 }
+  }
+}
+@media (max-width: 600px) {
+  .content {
+    padding: 40px 5px;      /* Reduce horizontal padding */
+  }
+  .content h1 {
+    font-size: 1.5em;       /* Smaller font size */
+    word-break: break-word; /* Prevent overflow */
+  }
+  .wrapper, .dynamic li, .static {
+    font-size: 1em !important;
+    flex-wrap: wrap;
+  }
+  .content button {
+    margin-top: 30px;
+    padding: 10px 15px;
+    font-size: 1em;
+  }
+  .content i {
+    margin-left: 15px;
+    font-size: 1.2em;
+  }
+  .socials {
+    flex-wrap: wrap;
+  }
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+@keyframes slide {
+  0%   { top: 0 }
+  33%  { top: -40px }
+  66%  { top: -80px }
+  100% { top: 0 }
+}
+
+.content p{
+    font-weight: bold;
+}
+
+.content button{
+    margin-top: 50px;
+    margin-left: 30px;
+    padding: 20px;
+    text-decoration: none;
+    background-color: #FF6969;
+    color:#141E46;
+    font-family: 'Lora';
+    font-weight: bold;
+    border: none;
+    border-radius: 10%;
+}
+
+.content i{
+    color: #141E46;
+    margin-left: 40px;
+}
+
+.socials{
+    margin-top: 30px;
+    display: flex;
+    font-size: x-large;
+    justify-content: center;  
+    align-items: center;
+}
+
+
+
+/*About Section*/
+.about {
+    background-color: #FFF5E0;
+    color: #141E46;
+    padding: 40px 24px;
+    margin: 120px auto 0 auto; /* Top margin for spacing, auto sides for centering */
+    max-width: 900px; /* Limit max width for large screens */
+    border-radius: 12px; /* Optional: subtle corners for aesthetics */
+    box-sizing: border-box;
+    min-height: 400px; /* Allows vertical growth */
+    height: auto;      /* Let height expand with content */
+}
+
+.about h1{
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+
+
+.description{
+    display: flex;
+     justify-content: center;
+    align-items: flex-start;
+}
+
+
+.description p {
+    padding-top: 22px;
+    max-width: 600px;
+    width: 100%;
+    text-align: justify;
+    font-size: 1.15em;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .about {
+        margin: 80px 8px 0 8px;
+        padding: 32px 8px;
+        min-height: 300px;
+        max-width: 100%;
+    }
+    .description {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .about {
+        margin: 32px 2vw 0 2vw;
+        padding: 20px 2vw;
+        min-height: 200px;
+        border-radius: 8px;
+    }
+    .description p {
+        font-size: 1em;
+        max-width: 98vw;
+        padding-top: 12px;
+        text-align: left; /* Easier readability on mobile */
+    }
+}
+/* Projects*/
+.projects {
+    margin-top: 230px;
+    min-height: 580px; /* Use min-height instead of fixed height */
+    background-color: #FFF5E0;
+    padding: 32px 12px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.projects h1{
+  margin-bottom: 30px;
+}
+
+.playground{
+  display: flex;
+    flex-wrap: wrap; /* Enable wrapping on small screens */
+    justify-content: center;
+    gap: 32px; /* Spacing between cards */
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fff;
+    border: 2px solid black;
+    border-radius: 12px;
+    margin: 0;
+    width: 100%;
+    max-width: 400px; /* Restrict card width */
+    min-width: 220px;
+    height: auto; /* Allows cards to grow vertically */
+    box-sizing: border-box;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transition: transform 0.2s;
+}
+
+.box:hover {
+    transform: translateY(-4px) scale(1.03);
+}
+
+.box h2, .box p {
+    width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+.box h2 {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1.25em;
+}
+
+.box p {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 1em;
+}
+
+.box a {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-left: 18px;
+    text-decoration: none;
+}
+
+.box button, .box i {
+    background-color: #DFF2EB;
+    border-radius: 10%;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1em;
+    margin-right: 8px;
+}
+
+.box button {
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-family: 'lora';
+    color: #141E46;
+    border: 3px solid #141E46;
+}
+
+.box-img1 {
+    width: 100%;
+    height: 170px;
+    background-image: url("Screenshot (53).png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px 8px 0 0;
+}
+
+@media (max-width: 900px) {
+    .playground {
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+    .projects {
+        margin-top: 80px;
+        padding: 18px 2vw;
+    }
+    .box {
+        max-width: 96vw;
+    }
+    .box-img1 {
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        max-width: 99vw;
+        min-width: 0;
+    }
+    .box-img1 {
+        height: 100px;
+    }
+    .box h2,
+    .box p {
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 1em;
+    }
+    .box a {
+        padding-left: 8px;
+    }
+}
+
+
+.Skills{
+  background-color: #FFF5E0;
+  margin-top:100px;
+}
+
+.Skills h1{
+  text-align: center;
+}
+
+.icons{
+  padding-top: 30px;
+}
+.frontend{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.backend{
+  display: flex;
+  justify-content: space-evenly;
+}
+.backend .fa-solid{
+  font-size: 60px;
+}
+.Skills p,i{
+  text-align: center;
+  
+}
+.Skills .fa-brands{
+  font-size: 60px;
+}
+
+/*Contact Section*/
+.contact-sec{
+  margin-top: 150px;
+  min-height: 700px;            /* Use min-height for flexibility */
+  height: auto;                 /* Let the section grow as needed */
+  background-color: #BE5B50;
+  color: #FFF5E0;
+  box-sizing: border-box;
+  padding-bottom: 40px;
+}
+
+.boxes{
+  display: flex;
+  gap: 32px;                    /* Add gap between cards */
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;              /* Allow cards to wrap if viewport is narrow */
+  padding: 24px 8px 0 8px;
+}
+
+.contact-sec h1{
+  padding-top: 30px;
+  text-align: center;
+}
+
+.contact-sec p{
+  padding-top: 30px;
+  text-align: center;
+}
+
+.card1 {
+  margin: 0;
+  min-width: 270px;
+  max-width: 500px;             /* Make the cards less wide for better fit */
+  width: 100%;
+  background-color: #FFF5E0;
+  color: #8A2D3B;
+  border-radius: 14px;
+  border: 4px solid #8A2D3B;
+  padding-bottom: 18px;
+  box-sizing: border-box;
+  flex: 1 1 320px;              /* Make cards shrink and wrap responsively */
+  display: flex;
+  flex-direction: column;
+}
+
+.card1 h2{
+  text-align: left;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.card1 p {
+  padding: 20px 24px 0 24px;
+  text-align: left;
+}
+
+.card1 p em {
+    display: block;                /* Allows centering if not already */
+    font-style: italic;            /* Ensures italic style for clarity */
+    text-align: center;
+}
+
+.card1 .mini1{
+  margin-top: 16px;
+  margin-left: 20px;
+  height: 44px;
+  width: 100%;
+  max-width: 420px;
+  border: 2.5px solid #8A2D3B;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  background-color: #FFF5E0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card1 .mini1:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+.mini1 i{
+  font-size: 23px;
+}
+
+.mini1 a{
+  padding-left: 13px;
+  color: #8A2D3B;
+  text-decoration: none;
+  font-size: 1em;
+  word-break: break-all; /* Prevent overflow on very small screens */
+}
+
+.quotes{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  align-items: center;
+}
+.quotes .oprah{
+  height: 140px;
+  width: 140px;
+  background-size: cover;
+  border-radius: 50%;
+  background-position: center;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 1000px) {
+  .boxes {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+  .card1 {
+    max-width: 98vw;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-sec {
+    margin-top: 60px;
+    padding-bottom: 16px;
+    min-height: 400px;
+  }
+  .card1 {
+    max-width: 99vw;
+    border-radius: 8px;
+    padding-bottom: 8px;
+  }
+  .card1 h2 {
+    padding-left: 8px;
+    padding-top: 10px;
+    font-size: 1.1em;
+  }
+  .card1 .mini1 { 
+    margin-left: 5px;
+    min-width: 0;
+    max-width: 96vw;
+    padding: 7px 3px;
+    font-size: 0.98em;
+  }
+  .mini1 i { font-size: 18px; }
+  .mini1 a { font-size: 0.98em; }
+  .card1 p { padding: 14px 8px 0 8px; font-size: 0.96em; }
+  .quotes .oprah{ height: 90px; width: 90px; }
+}
+/*footer*/
+.foot{
+  height: 140px;
+  background-color: #8a2131;
+  color: #FFF5E0;
+  padding-top: 30px;
+  text-align: center;
+}
+
+
